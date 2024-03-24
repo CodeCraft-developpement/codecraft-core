@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_7.0.xsd">
+
+
+  <form title="Job" name="codecraft-core-job-form" model="org.codecraft.apps.core.db.Job"
+    onNew="codecraft-core-action-group-job-on-new">
+    <panel name="codecraftCoreJobPanel">
+      <field name="statusSelect" widget="NavSelect" colSpan="12"/>
+      <field name="code" colSpan="6"/>
+      <field name="title" colSpan="6"/>
+      <field name="description" colSpan="12" widget="html" x-lite="true"/>
+    </panel>
+  </form>
+
+  <grid title="Jobs" name="codecraft-core-job-grid" model="org.codecraft.apps.core.db.Job">
+    <field name="code"/>
+    <field name="title"/>
+    <field name="description"/>
+  </grid>
+
+  <action-group name="codecraft-core-action-group-job-on-new">
+    <action name="codecraft-core-action-attrs-job-on-new"/>
+  </action-group>
+
+  <action-attrs name="codecraft-core-action-attrs-job-on-new">
+    <attribute for="statusSelect" name="value" expr="eval: __repo__(Job).STATUS_DRAFT"/>
+  </action-attrs>
+
+</object-views>
