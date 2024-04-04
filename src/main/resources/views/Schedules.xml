@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_7.0.xsd">
+
+  <form name="meta-schedule-form" title="Schedule" model="com.axelor.meta.db.MetaSchedule"
+    id="codecraft-meta-schedule-form" extension="true">
+    <extend target="/">
+      <attribute name="onLoad" value="action-group-codecraft-meta-schedule-on-load"/>
+    </extend>
+    <extend target="//field[@name='name']">
+      <insert position="before">
+        <field name="$ccJobStatusSelect" title="Job Status"
+          selection="codecraft-core-job-status-select" readonly="true" colSpan="12"
+          widget="navSelect"/>
+      </insert>
+    </extend>
+    <extend target="//button[@name='btnUpdate']">
+      <attribute name="onClick"
+        value="save,com.axelor.meta.web.JobController:update,action-method-codecraft-meta-schedule-check-job-status"/>
+    </extend>
+  </form>
+
+  <action-group name="action-group-codecraft-meta-schedule-on-load">
+    <action name="action-method-codecraft-meta-schedule-check-job-status"/>
+  </action-group>
+
+  <action-method name="action-method-codecraft-meta-schedule-check-job-status">
+    <call class="org.codecraft.apps.core.web.JobController" method="checkJobStatus"/>
+  </action-method>
+
+
+</object-views>
