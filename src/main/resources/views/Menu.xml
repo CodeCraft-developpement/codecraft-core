@@ -5,14 +5,4 @@
 
   <menuitem name="codecraft-core-menu-item-root" order="0" title="CodeCraft" icon="home"/>
 
-  <menuitem name="codecraft-core-menu-item-thread" parent="codecraft-core-menu-item-root"
-    order="0" title="Jobs" action="codecraft-core-action-view-job" icon="bolt"
-    icon-background="#1c4d4a"/>
-
-  <action-view name="codecraft-core-action-view-job" title="Jobs"
-    model="org.codecraft.apps.core.db.Job">
-    <view type="grid" name="codecraft-core-job-grid"/>
-    <view type="form" name="codecraft-core-job-form"/>
-  </action-view>
-
 </object-views>
