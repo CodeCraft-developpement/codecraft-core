@@ -1,8 +1,18 @@
 plugins {
     id 'com.axelor.app'
+    id "org.flywaydb.flyway" version "${flywayVersion}"
 }
 
 axelor {
     title "codecraft-core"
     description "CodeCraft Core"
+}
+
+flyway {
+    url = "${flywayUrl}"
+    user = "${flywayUser}"
+    password = "${flywayPassword}"
+    table = "${flywayTableCodecraftCore}"
+    baselineVersion = '1'
+    cleanDisabled = false
 }
