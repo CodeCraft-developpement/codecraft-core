@@ -8,11 +8,19 @@ axelor {
     description "CodeCraft Core"
 }
 
+group = 'org.codecraft.apps'
+version = '1.0.0'
+
 flyway {
     url = "${flywayUrl}"
     user = "${flywayUser}"
     password = "${flywayPassword}"
     table = "${flywayTableCodecraftCore}"
-    baselineVersion = '1'
+    baselineVersion = '1.0.0.0001'
     cleanDisabled = false
+    locations = ['org/codecraft/apps/core/db/migration','classpath:core/db/migration']
+    schemas = ['public']
+    sqlMigrationPrefix = 'Core_V'
+//    callbacks = ['db.migration.BeforeMigrate']
+
 }
