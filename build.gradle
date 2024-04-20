@@ -16,11 +16,10 @@ flyway {
     user = "${flywayUser}"
     password = "${flywayPassword}"
     table = "${flywayTableCodecraftCore}"
-    baselineVersion = '1.0.0.0001'
+    baselineVersion = '1.0.0.0000'
     cleanDisabled = false
     locations = ['org/codecraft/apps/core/db/migration','classpath:core/db/migration']
     schemas = ['public']
     sqlMigrationPrefix = 'Core_V'
-//    callbacks = ['db.migration.BeforeMigrate']
 
 }
