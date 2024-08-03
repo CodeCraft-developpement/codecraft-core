@@ -1,6 +1,5 @@
 plugins {
     id 'com.axelor.app'
-    id "org.flywaydb.flyway" version "${flywayVersion}"
 }
 
 axelor {
@@ -11,15 +10,8 @@ axelor {
 group = 'org.codecraft.apps'
 version = '1.0.0'
 
-flyway {
-    url = "${flywayUrl}"
-    user = "${flywayUser}"
-    password = "${flywayPassword}"
-    table = "${flywayTableCodecraftCore}"
-    baselineVersion = '1.0.0.0000'
-    cleanDisabled = false
-    locations = ['org/codecraft/apps/core/db/migration','classpath:core/db/migration']
-    schemas = ['public']
-    sqlMigrationPrefix = 'Core_V'
-
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
