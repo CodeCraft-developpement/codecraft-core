@@ -2,6 +2,8 @@ plugins {
     id 'com.axelor.app'
 }
 
+apply from: "../../versions.gradle"
+
 axelor {
     title "codecraft-core"
     description "CodeCraft Core"
